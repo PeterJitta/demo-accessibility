@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import React from 'react'
 import P from './accessbility/P';
+import IMG from './accessbility/IMG';
 
 const Hero = () => {
     const router = useRouter();
@@ -16,12 +17,12 @@ const Hero = () => {
                         ลงทุนได้มากกว่า 1,700 กองทุนจาก 20 บลจ. ตอบโจทย์ทุกเป้าหมายการลงทุน
                     </P>
                     <div className="flex justify-center">
-                        <a href='#feature' className="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">Feature</a>
+                        <a href='#feature' className="inline-flex text-white bg-primary border-0 py-2 px-6 focus:outline-none hover:bg-primary rounded text-lg">Feature</a>
                         <a href="#contact-us" className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Contact Us</a>
                     </div>
                 </div>
                 <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                    <img className="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600" />
+                    <IMG style="object-cover object-center rounded" alt="hero" url="https://jittawealth.com/_next/image?url=%2Fimg%2Fweb%2Fjitta-money.png&w=1080&q=75" />
                 </div>
             </div>
         </section>

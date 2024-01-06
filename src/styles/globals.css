@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .skip-to-content-link, .skip-to-content-link:visited {
-    @apply bg-blue-500 text-sm text-white font-semibold;
+    @apply bg-primary text-sm text-white font-semibold;
     height: 30px;
     left: 50%;
     padding: 8px;
