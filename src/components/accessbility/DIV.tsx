@@ -22,7 +22,7 @@ const DIV = (props: { id?: string, style: string, children: ReactNode, htmlEleme
                     <footer className={props.style}>{props.children}</footer>
                 )}
                 {props.htmlElement === "aside" && (
-                    <aside id={props.id} className={props.style}>{props.children}</aside>
+                    <aside aria-label={props.id} id={props.id} className={props.style}>{props.children}</aside>
                 )}
                 </>
             ) : (

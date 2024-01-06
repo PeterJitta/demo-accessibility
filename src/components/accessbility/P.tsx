@@ -10,9 +10,9 @@ const P = (props: { style: string, children: ReactNode, defaultElement: "h1" | "
             {heading || all ? (
                 <>
                 {props.defaultElement === "h1" && <h1 className={props.style}>{props.children}</h1>}
-                {props.defaultElement === "h2" && <h1 className={props.style}>{props.children}</h1>}
-                {props.defaultElement === "h3" && <h1 className={props.style}>{props.children}</h1>}
-                {props.defaultElement === "p" && <h1 className={props.style}>{props.children}</h1>}
+                {props.defaultElement === "h2" && <h2 className={props.style}>{props.children}</h2>}
+                {props.defaultElement === "h3" && <h3 className={props.style}>{props.children}</h3>}
+                {props.defaultElement === "p" && <p className={props.style}>{props.children}</p>}
                 </>
             ) : (
                 <div className={props.style}>{props.children}</div>
