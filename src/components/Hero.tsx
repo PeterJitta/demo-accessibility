@@ -10,7 +10,7 @@ const Hero = () => {
             <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col-reverse gap-5 items-center">
                 <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
                     <P defaultElement='h1' style="title-font sm:text-4xl text-3xl !leading-[3rem] mb-4 font-medium text-gray-900">
-                        Jitta Wealth จัดการพอร์ตให้เติบโต ด้วยสินทรัพย์คุณภาพดีทั่วโลก
+                        Meta Wealth จัดการพอร์ตให้เติบโต ด้วยสินทรัพย์คุณภาพดีทั่วโลก
                     </P>
                     <P defaultElement='p' style="mb-8 leading-relaxed">
                         ลงทุนได้มากกว่า 1,700 กองทุนจาก 20 บลจ. ตอบโจทย์ทุกเป้าหมายการลงทุน
