@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-family: 'Kanit', sans-serif;
+}
+
+
 .skip-to-content-link, .skip-to-content-link:visited {
     @apply bg-primary text-sm text-white font-semibold;
     height: 30px;

@@ -1,15 +1,15 @@
 import { useRouter } from 'next/router'
 import React from 'react'
 
-const IMG = (props: { url: string, alt: string, style: string }) => {
+const IMG = (props: { url: string, alt: string, style?: string }) => {
     const router = useRouter()
-    const { altText, all } = router.query
+    const { altText, all, bindImage } = router.query
     return (
         <>
             {altText || all ? (
-                <img src={props.url} alt={props.alt} className={props.style} />
+                <img src={bindImage ? "https://via.placeholder.com/1000x600" : props.url} alt={props.alt} className={props.style} />
             ) : (
-                <img src={props.url} className={props.style} />
+                <img src={bindImage ? "https://via.placeholder.com/1000x400" : props.url} className={props.style} />
             )}
         </>
     )

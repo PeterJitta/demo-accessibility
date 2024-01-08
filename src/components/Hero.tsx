@@ -5,12 +5,11 @@ import IMG from './accessbility/IMG';
 
 const Hero = () => {
     const router = useRouter();
-    const { heading } = router.query;
     return (
         <section className="text-gray-600 body-font">
             <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col-reverse gap-5 items-center">
                 <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                    <P defaultElement='h1' style="title-font sm:text-4xl text-3xl !leading-[3rem] mb-4 font-medium text-gray-900">
+                    <P defaultElement='h1' style=" sm:text-4xl text-3xl !leading-[3rem] mb-4 font-medium text-gray-900">
                         Meta Wealth จัดการพอร์ตให้เติบโต ด้วยสินทรัพย์คุณภาพดีทั่วโลก
                     </P>
                     <P defaultElement='p' style="mb-8 leading-relaxed">
@@ -22,7 +21,7 @@ const Hero = () => {
                     </div>
                 </div>
                 <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                    <IMG style="object-cover object-center rounded" alt="hero" url="https://jittawealth.com/_next/image?url=%2Fimg%2Fweb%2Fjitta-money.png&w=1080&q=75" />
+                    <IMG style="object-cover object-center rounded" alt="" url="https://jittawealth.com/_next/image?url=%2Fimg%2Fweb%2Fjitta-money.png&w=1080&q=75" />
                 </div>
             </div>
         </section>

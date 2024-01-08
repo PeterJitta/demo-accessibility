@@ -10,7 +10,7 @@ export const ChildFeature = () => {
                 </svg>
             </div>
             <div className="flex-grow pl-6">
-                <P defaultElement='h3' style="text-gray-900 text-lg title-font font-medium mb-2">Shooting Stars</P>
+                <P defaultElement='h3' style="text-gray-900 text-lg  font-medium mb-2">Shooting Stars</P>
                 <P defaultElement='p' style="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard ugh iceland kickstarter tumblr live-edge tilde.</P>
                 <a className="mt-3 text-primary inline-flex items-center">Learn More
                     <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">

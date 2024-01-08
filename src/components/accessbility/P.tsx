@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import React, { ReactNode } from 'react'
 
-const P = (props: { style: string, children: ReactNode, defaultElement: "h1" | "h2" | "h3" | "p" }) => {
+const P = (props: { style?: string, children: ReactNode, defaultElement: "h1" | "h2" | "h3" | "p" }) => {
     const router = useRouter();
     const { heading, all } = router.query
 
