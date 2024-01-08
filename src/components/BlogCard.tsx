@@ -3,10 +3,12 @@ import React from 'react'
 import P from './accessbility/P'
 import SVG from './accessbility/SVG'
 import { useRouter } from 'next/router'
+import queryString from 'query-string'
 
 const BlogCard = (props: { title: string, body: string }) => {
     const router = useRouter();
-    const {ariaLabel, all} = router.query
+    const query = queryString.stringify(router.query)
+    const { ariaLabel, all } = router.query
     // source: https://www.visionaustralia.org/business-consulting/digital-access/blog/how-to-make-read-more-links-accessible
     return (
         <div className="py-8 flex flex-wrap md:flex-nowrap">
@@ -21,7 +23,7 @@ const BlogCard = (props: { title: string, body: string }) => {
                 <P defaultElement='p' style="leading-relaxed">
                     {props.body}
                 </P>
-                <Link aria-label={ariaLabel || all ? `อ่าน ${props.title} ต่อ` : ""} href="/blog" className="text-primary inline-flex items-center mt-4">
+                <Link aria-label={ariaLabel || all ? `อ่าน ${props.title} ต่อ` : ""} href={`/blog${!!query.length ? `?${query}` : ""}`} className="text-primary inline-flex items-center mt-4">
                     อ่านต่อ
                     <SVG width='16' height='16' title=''>
                         <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
