@@ -78,12 +78,6 @@ const Header = () => {
 
           >
             <li>
-              <a
-                onClick={() => setToggleNav(false)} className="md:p-4 py-2 block hover:text-primary" href="/#feature">
-                Features
-              </a>
-            </li>
-            <li>
               <Link legacyBehavior href={`/blog${!!query.length ? `?${query}` : ""}`}>
                 <a
                   onClick={() => setToggleNav(false)} className="md:p-4 py-2 block hover:text-primary">
