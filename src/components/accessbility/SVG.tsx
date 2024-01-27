@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router'
 import React, { ReactNode } from 'react'
 
-const SVG = (props: {children: ReactNode, title: string, width: string, height: string}) => {
+const SVG = (props: { children: ReactNode, title: string, width: string, height: string }) => {
     const router = useRouter()
-    const { altText, all } = router.query
+    const { altText, all, level } = router.query
     return (
         <svg width={props.width} height={props.height}>
-            {altText && (
+            {(altText || all || Number(level) >= 2) && (
                 <title>{props.title}</title>
             )}
             {props.children}

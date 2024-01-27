@@ -4,8 +4,9 @@ import P from './accessbility/P'
 import SVG from './accessbility/SVG'
 import { useRouter } from 'next/router'
 import queryString from 'query-string'
+import Url from './accessbility/Url'
 
-const BlogCard = (props: { title: string, body: string }) => {
+const BlogCard = (props: { title: string, body: string, link: string }) => {
     const router = useRouter();
     const query = queryString.stringify(router.query)
     const { ariaLabel, all } = router.query
@@ -23,7 +24,11 @@ const BlogCard = (props: { title: string, body: string }) => {
                 <P defaultElement='p' style="leading-relaxed">
                     {props.body}
                 </P>
-                <Link aria-label={ariaLabel || all ? `อ่าน ${props.title} ต่อ` : ""} href={`/blog${!!query.length ? `?${query}` : ""}`} className="text-primary inline-flex items-center mt-4">
+                <Url
+                    type='internal'
+                    label={`อ่าน ${props.title} ต่อ`}
+                    url={`${props.link}${!!query.length ? `?${query}` : ""}`}
+                >
                     อ่านต่อ
                     <SVG width='16' height='16' title=''>
                         <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -31,7 +36,7 @@ const BlogCard = (props: { title: string, body: string }) => {
                             <path d="M12 5l7 7-7 7"></path>
                         </svg>
                     </SVG>
-                </Link>
+                </Url>
             </div>
         </div>
     )
