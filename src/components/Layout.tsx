@@ -9,7 +9,7 @@ const Layout: React.FC<PropsWithChildren> = (props) => {
     return (
         <>
             <Head>
-                <title>{content.company} การลงทุนแห่งอนาคต</title>
+                <title>Wealth Wise การลงทุนแห่งอนาคต</title>
                 <meta content={`ทำกำไรระยะยาวอย่างยั่งยืน ลงทุนในหุ้นตามหลักการระดับโลกด้วยเทคโนโลยี บริหารปรับพอร์ตอัตโนมัติ ${content.company} ดูแลให้ครบวงจรด้วยค่าธรรมเนียมต่ำมาก เปิดบัญชีวันนี้`} name="description" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" cross-origin />

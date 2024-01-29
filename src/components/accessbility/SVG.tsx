@@ -6,9 +6,6 @@ const SVG = (props: { children: ReactNode, title: string, width: string, height:
     const { altText, all, level } = router.query
     return (
         <svg width={props.width} height={props.height}>
-            {(altText || all || Number(level) >= 2) && (
-                <title>{props.title}</title>
-            )}
             {props.children}
         </svg>
     )
