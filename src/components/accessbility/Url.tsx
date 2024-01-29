@@ -19,7 +19,7 @@ const Url = (props: { type: "internal" | "external", url: string, label: string 
                 </Link>
             )}
             {props.type === "external" && (
-                <a aria-label={isReadableLink ? props.label : ''} href={props.url}>{props.children}</a>
+                <a target='_blank' aria-label={isReadableLink ? props.label : ''} href={props.url}>{props.children}</a>
             )}
         </>
     )
