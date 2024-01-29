@@ -2,14 +2,16 @@ import React from 'react'
 import Layout from '../../components/Layout'
 import BlogPageSection from '../../components/BlogPageSection'
 import IMG from '../../components/accessbility/IMG'
+import { useRouter } from 'next/router'
 
 const blog3 = () => {
+  const router  = useRouter();
   return (
     <Layout>
       <BlogPageSection
         title="ฟิลิปปินส์และสหรัฐฯ กระชับความเป็นพันธมิตรด้วยแนวทางการป้องกันประเทศใหม่"
       >
-        <IMG url="/asset/news-image.jpeg" alt='นายลอยด์ ออสติน รัฐมนตรีว่าการกระทรวงกลาโหมสหรัฐฯ และนายเดลฟิน โลเรนซานา รัฐมนตรีว่าการกระทรวงกลาโหมแห่งชาติของฟิลิปปินส์ จับมือกันหลังจากการประชุมที่ค่ายอากีนัลโด ในเมืองเกซอน ประเทศฟิลิปปินส์ ในห้องประชุมที่ประดับด้วยธงของทั้งสองชาติ เมื่อเดือนกรกฎาคม พ.ศ. 2564' />
+        <IMG url={`${router.basePath}/asset/news-image.jpeg`} alt='นายลอยด์ ออสติน รัฐมนตรีว่าการกระทรวงกลาโหมสหรัฐฯ และนายเดลฟิน โลเรนซานา รัฐมนตรีว่าการกระทรวงกลาโหมแห่งชาติของฟิลิปปินส์ จับมือกันหลังจากการประชุมที่ค่ายอากีนัลโด ในเมืองเกซอน ประเทศฟิลิปปินส์ ในห้องประชุมที่ประดับด้วยธงของทั้งสองชาติ เมื่อเดือนกรกฎาคม พ.ศ. 2564' />
 
         <div className='prose text-lg flex flex-col gap-2.5 pt-5'>
           <p>มาเรีย ที. เรเยส</p>
