@@ -47,7 +47,7 @@ const ContactUs = () => {
                         }}>ตกลง</button>
                 </div>
             </dialog>
-            <DIV htmlElement="section" id="contact-us" style="text-gray-600 body-font relative">
+            <DIV htmlElement="section" id="contact-us" label='ติดต่อเรา' style="text-gray-600 body-font relative">
 
                 <div className="max-w-[950px] px-5 py-24 mx-auto">
                     <div className="flex flex-col text-center w-full mb-12">

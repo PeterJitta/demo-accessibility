@@ -13,7 +13,7 @@ const Header = () => {
   const query = queryString.stringify(router.query)
 
   return (
-    <DIV htmlElement="header" style="container mx-auto max-w-[1240px]">
+    <DIV htmlElement="header" label="เมนู" style="container mx-auto max-w-[1240px]">
       {skipLink || all && (
         <a href="#main" tabIndex={-1} className="skip-to-content-link">
           Skip to main content
@@ -91,7 +91,7 @@ const Header = () => {
               >
                 <p
                   onClick={() => setToggleNav(false)} className="md:p-4 py-2 block hover:text-primary text-gray-500">
-                  Blog
+                  บทความ
                 </p>
               </Url>
             </li>

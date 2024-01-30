@@ -8,7 +8,7 @@ import { content } from '../utils/const'
 
 const Blog = () => {
     return (
-        <DIV htmlElement="aside" id="blog" style="text-gray-600 body-font">
+        <DIV htmlElement="aside" id="blog" label='รวมบทความ' style="text-gray-600 body-font">
             <div className="container px-5 py-24 mx-auto">
                 <P defaultElement='h2' style="sm:text-3xl text-2xl font-medium !leading-[3rem]  text-center text-gray-900 mb-5">
                     ติดตามบทความ สาระน่ารู้ ข่าวหุ้น กิจกรรม <br /> และเทรนด์การลงทุนทั่วโลกที่น่าสนใจ

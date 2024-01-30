@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import React, { ReactNode } from 'react'
 
-const DIV = (props: { id?: string, style: string, children: ReactNode, htmlElement: "aside" | "section" | "main" | "header" | "footer" | "nav" }) => {
+const DIV = (props: { id?: string, style: string, children: ReactNode, label?: string, htmlElement: "aside" | "section" | "main" | "header" | "footer" | "nav" }) => {
     const router = useRouter();
     const { landmark, all, level } = router.query
 
@@ -10,7 +10,7 @@ const DIV = (props: { id?: string, style: string, children: ReactNode, htmlEleme
             {(landmark || all || Number(level) >= 1) ? (
                 <>
                 {props.htmlElement === "section" && (
-                    <section aria-label={props.id} id={props.id} className={props.style}>{props.children}</section>
+                    <section aria-label={props.label} id={props.id} className={props.style}>{props.children}</section>
                 )}
                 {props.htmlElement === "header" && (
                     <header className={props.style}>{props.children}</header>
@@ -25,7 +25,7 @@ const DIV = (props: { id?: string, style: string, children: ReactNode, htmlEleme
                     <footer className={props.style}>{props.children}</footer>
                 )}
                 {props.htmlElement === "aside" && (
-                    <aside aria-label={props.id} id={props.id} className={props.style}>{props.children}</aside>
+                    <aside aria-label={props.label} id={props.id} className={props.style}>{props.children}</aside>
                 )}
                 </>
             ) : (

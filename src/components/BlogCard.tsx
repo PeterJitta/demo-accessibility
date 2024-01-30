@@ -15,7 +15,7 @@ const BlogCard = (props: { title: string, body: string, link: string }) => {
         <div className="py-8 flex flex-wrap md:flex-nowrap">
             <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
                 <span className="font-semibold  text-gray-700">Highlight</span>
-                <span className="mt-1 text-gray-500 text-sm">12 Jun 2024</span>
+                <span className="mt-1 text-gray-500 text-sm">12 มกรา 2024</span>
             </div>
             <div className="md:flex-grow">
                 <P defaultElement='h3' style="text-2xl font-medium text-gray-900  mb-2">
@@ -31,7 +31,7 @@ const BlogCard = (props: { title: string, body: string, link: string }) => {
                 >
                     อ่านต่อ
                     <SVG width='16' height='16' title=''>
-                        <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M5 12h14"></path>
                             <path d="M12 5l7 7-7 7"></path>
                         </svg>

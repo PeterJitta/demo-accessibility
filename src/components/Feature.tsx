@@ -6,7 +6,7 @@ import { ChildFeature } from './ChildFeature'
 
 const Feature = () => {
     return (
-        <DIV htmlElement="aside" id="feature" style="text-gray-600 body-font" >
+        <DIV htmlElement="aside" id="feature" label="ทำไมต้องเลือกเรา" style="text-gray-600 body-font" >
             <div className="container px-5 py-24 mx-auto">
                 <P defaultElement='h2' style="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-20">
                     ฝากฝังเรื่องลงทุนให้เทคโนโลยีของเราช่วยดูแล

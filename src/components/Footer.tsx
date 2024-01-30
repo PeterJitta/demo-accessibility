@@ -5,8 +5,13 @@ import Link from 'next/link'
 import SVG from './accessbility/SVG'
 import { content } from '../utils/const'
 import Url from './accessbility/Url'
+import { useRouter } from 'next/router'
 
 const Footer = () => {
+    const router = useRouter();
+
+    console.info(router.basePath.concat(router.asPath).concat("?level=3"));
+
     return (
         <DIV htmlElement='footer' style="text-gray-600 w-full body-font bg-gray-50">
             {/* <div className="container max-w-[1240px] mx-auto px-5 py-24 mx-auto">
@@ -65,6 +70,18 @@ const Footer = () => {
                         </Url>
                     </span>
                 </div>
+            </div>
+
+            <div className='sr-only'>
+                <button type='button' onClick={() => router.replace({
+                    query: {...router.query, "level": "1"}
+                })}>Skip to Level 1</button>
+                <button type='button' onClick={() => router.replace({
+                    query: {...router.query, "level": "2"}
+                })}>Skip to Level 2</button>
+                <button type='button' onClick={() => router.replace({
+                    query: {...router.query, "level": "3"}
+                })}>Skip to Level 3</button>
             </div>
         </DIV>
     )
