@@ -7,7 +7,7 @@ const P = (props: { style?: string, children: ReactNode, defaultElement: "h1" | 
 
     return (
         <>
-            {(heading || all || level === "1") ? (
+            {(heading || all || Number(level) >= 1) ? (
                 <>
                 {props.defaultElement === "h1" && <h1 className={props.style}>{props.children}</h1>}
                 {props.defaultElement === "h2" && <h2 className={props.style}>{props.children}</h2>}

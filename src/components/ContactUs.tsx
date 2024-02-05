@@ -1,12 +1,18 @@
-import React, { useState } from 'react'
+import React, { LegacyRef, RefObject, useEffect, useRef, useState } from 'react'
 import P from './accessbility/P'
 import DIV from './accessbility/DIV'
 import { useFormik } from 'formik'
 import * as Yup from 'yup';
 import { content } from '../utils/const';
+import { useRouter } from 'next/router';
+import INPUT from './accessbility/INPUT';
 
 const ContactUs = () => {
+    const router = useRouter();
+    const { level } = router.query;
+    const isLevelThree = level === "3";
     const [modal, setModal] = useState(false);
+    const modalRef = useRef<any>(undefined);
     const formik = useFormik({
         initialValues: {
             firstName: "",
@@ -28,25 +34,42 @@ const ContactUs = () => {
             }).required()
     })
 
+    useEffect(() => {
+        if (modal) {
+            modalRef.current.focus();
+        }
+    }, [modal])
+
     return (
         <>
-            <dialog className={`${modal ? "flex" : "hidden"} fixed inset-0 bg-gray-500 bg-opacity-75 top-0 left-0 w-screen h-screen z-10 overflow-hidden items-center justify-center`} open={modal}>
-                <div className="bg-white px-6 pt-12 pb-5 mx-auto w-[350px] rounded">
-                    <P defaultElement='h1' style='mb-2 text-center text-2xl'>
-                        ส่งข้อมูลใบสมัครเรียบร้อย
-                    </P>
-                    <P defaultElement='p' style='mb-6 text-center text-gray-500 text-md'>
-                        ทางเราจะรีบติดต่อให้เร็วที่สุด
-                    </P>
-                    <button
-                        className="flex items-center justify-center text-center w-full mx-auto text-white bg-primary border-0 py-2 px-8 focus:outline-none hover:bg-primary rounded text-lg"
-                        type='button'
-                        onClick={() => {
-                            setModal(false);
-                            formik.resetForm();
-                        }}>ตกลง</button>
-                </div>
-            </dialog>
+            {modal && (
+                <dialog
+                    id="modal"
+                    ref={modalRef}
+                    aria-modal="true"
+                    tabIndex={-1}
+                    aria-labelledby="dialog-title"
+                    aria-describedby="dialog-instructions"
+                    role="dialog"
+                    className={`${modal ? "flex" : "hidden"} fixed inset-0 bg-gray-500 bg-opacity-75 top-0 left-0 w-screen h-screen z-10 overflow-hidden items-center justify-center`} open={modal ? true : undefined}>
+                    <div role="document" className="bg-white px-6 pt-12 pb-5 mx-auto w-[350px] rounded">
+                        <h2 id="dialog-title" className='mb-2 text-center text-2xl'>
+                            ส่งข้อมูลใบสมัครเรียบร้อย
+                        </h2>
+                        <p id="dialog-instructions" className='mb-6 text-center text-gray-500 text-md'>
+                            ทางเราจะรีบติดต่อให้เร็วที่สุด
+                        </p>
+                        <button
+                            aria-label="คลิกเพืื่อปิด"
+                            className="flex items-center justify-center text-center w-full mx-auto text-white bg-primary border-0 py-2 px-8 focus:outline-none hover:bg-primary rounded text-lg"
+                            type='button'
+                            onClick={() => {
+                                setModal(false);
+                                formik.resetForm();
+                            }}>ตกลง</button>
+                    </div>
+                </dialog>
+            )}
             <DIV htmlElement="section" id="contact-us" label='ติดต่อเรา' style="text-gray-600 body-font relative">
 
                 <div className="max-w-[950px] px-5 py-24 mx-auto">
@@ -59,36 +82,40 @@ const ContactUs = () => {
                             <div className="p-2 w-full sm:w-1/2">
                                 <div className="relative">
                                     <label htmlFor="firstName" className="leading-7 text-sm text-gray-600">ชื่อ <span className='text-red-500'>*</span></label>
-                                    <input required onBlur={formik.handleBlur} value={formik.values.firstName} onChange={formik.handleChange} type="text" id="firstName" name="firstName" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-primary focus:bg-white focus:ring-1 focus:ring-primary text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                    <INPUT requiredField onBlur={formik.handleBlur} value={formik.values.firstName} onChange={formik.handleChange} type="text" id="firstName" name="firstName"
+                                        className={`${formik.touched.firstName && formik.errors.firstName ? "border border-red-500" : "border border-gray-300"} w-full bg-gray-100 bg-opacity-50 rounded focus:border-primary focus:bg-white focus:ring-1 focus:ring-primary text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`} />
                                 </div>
-                                {formik.touched.firstName && formik.errors.firstName && (
+                                {isLevelThree && formik.touched.firstName && formik.errors.firstName && (
                                     <span role="alert" className='text-red-500'>{formik.errors.firstName}</span>
                                 )}
                             </div>
                             <div className="p-2 w-full sm:w-1/2">
                                 <div className="relative">
                                     <label htmlFor="lastName" className="leading-7 text-sm text-gray-600">นามสกุล <span className='text-red-500'>*</span></label>
-                                    <input required onBlur={formik.handleBlur} value={formik.values.lastName} onChange={formik.handleChange} type="text" id="lastName" name="lastName" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-primary focus:bg-white focus:ring-1 focus:ring-primary text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                    <INPUT requiredField onBlur={formik.handleBlur} value={formik.values.lastName} onChange={formik.handleChange} type="text" id="lastName" name="lastName"
+                                        className={`${formik.touched.lastName && formik.errors.lastName ? "border border-red-500" : "border border-gray-300"} w-full bg-gray-100 bg-opacity-50 rounded focus:border-primary focus:bg-white focus:ring-1 focus:ring-primary text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`} />
                                 </div>
-                                {formik.touched.lastName && formik.errors.lastName && (
+                                {isLevelThree && formik.touched.lastName && formik.errors.lastName && (
                                     <span role="alert" className='text-red-500'>{formik.errors.lastName}</span>
                                 )}
                             </div>
                             <div className="p-2 w-full">
                                 <div className="relative">
                                     <label htmlFor="email" className="leading-7 text-sm text-gray-600">อีเมล <span className='text-red-500'>*</span></label>
-                                    <input required onBlur={formik.handleBlur} value={formik.values.email} onChange={formik.handleChange} type="email" id="email" name="email" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-primary focus:bg-white focus:ring-1 focus:ring-primary text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                    <INPUT requiredField onBlur={formik.handleBlur} value={formik.values.email} onChange={formik.handleChange} type="email" id="email" name="email"
+                                        className={`${formik.touched.email && formik.errors.email ? "border border-red-500" : "border border-gray-300"} w-full bg-gray-100 bg-opacity-50 rounded focus:border-primary focus:bg-white focus:ring-1 focus:ring-primary text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`} />
                                 </div>
-                                {formik.touched.email && formik.errors.email && (
+                                {isLevelThree && formik.touched.email && formik.errors.email && (
                                     <span role="alert" className='text-red-500'>{formik.errors.email}</span>
                                 )}
                             </div>
                             <div className="p-2 w-full">
                                 <div className="relative">
                                     <label htmlFor="referal" className="leading-7 text-sm text-gray-600">รหัสผู้แนะนำ</label>
-                                    <input onBlur={formik.handleBlur} value={formik.values.referal} onChange={formik.handleChange} type="text" id="referal" name="referal" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-primary focus:bg-white focus:ring-1 focus:ring-primary text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                                    <INPUT onBlur={formik.handleBlur} value={formik.values.referal} onChange={formik.handleChange} type="text" id="referal" name="referal"
+                                        className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-primary focus:bg-white focus:ring-1 focus:ring-primary text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                                 </div>
-                                {formik.touched.referal && formik.errors.referal && (
+                                {isLevelThree && formik.touched.referal && formik.errors.referal && (
                                     <span role="alert" className='text-red-500'>{formik.errors.referal}</span>
                                 )}
                             </div>
@@ -100,7 +127,7 @@ const ContactUs = () => {
                                         ยอมรับเงื่อนไขการใช้งาน และนโยบายความเป็นส่วนตัว
                                     </label>
                                 </div>
-                                {formik.touched.acceptCondition && formik.errors.acceptCondition && (
+                                {isLevelThree && formik.touched.acceptCondition && formik.errors.acceptCondition && (
                                     <span role="alert" className='text-red-500'>{formik.errors.acceptCondition}</span>
                                 )}
                             </div>
